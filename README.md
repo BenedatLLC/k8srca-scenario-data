@@ -51,6 +51,18 @@ The k8stools capture of the scenario's namespaces: object summaries, events and
 container logs. `k8s-capture-state` redacts secrets in it before it is written,
 as it does for every capture.
 
+## Third-party data: ITBench-Lite
+
+The captures of k8srca's `itbench-*` scenarios are derived from IBM
+Research's [ITBench-Lite](https://huggingface.co/datasets/ibm-research/ITBench-Lite)
+dataset (SRE snapshots `v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7`),
+licensed under the Apache License 2.0, as this repository is. They are not
+the dataset's files. Each is one pull of a scenario's recorded Kubernetes
+objects, events and OpenTelemetry logs, converted to a k8stools capture
+(`k8s-capture-state --from-itbench`), redacted as every capture is, and cut
+to what the tools read. The scenario's README in k8srca says which snapshot
+and pull it came from. The skills beside them are built from those captures.
+
 ## What is in a metrics capture
 
 Numbers and labels only: no logs, environment or configuration values. The
